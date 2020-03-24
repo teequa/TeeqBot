@@ -23,7 +23,7 @@ Cause of action.. <br/>
 
 ### Resources
 
-[https://nodejs.org/en/] (Node.js)
+[Node.js] (https://nodejs.org/en/)
 
 [discord.js] (https://www.npmjs.com/package/discord.js]
 
