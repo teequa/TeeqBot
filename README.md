@@ -21,6 +21,12 @@ Cause of action.. <br/>
 
 <a href="https://www.youtube.com/watch?v=Q03akWZkjZ8&list=PLm2hXbDAZv13tqx5I9eNJO7Y2XKa-3VDf"> YT playlist for setup </a>
 
+### Resources
+
+[https://nodejs.org/en/] (Node.js)
+
+[discord.js] (https://www.npmjs.com/package/discord.js]
+
 # Author
 
 Teequa/Aune
