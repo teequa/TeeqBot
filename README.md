@@ -23,9 +23,9 @@ Cause of action.. <br/>
 
 ### Resources
 
-[Node.js] (https://nodejs.org/en/)
+[Node.js](https://nodejs.org/en/)
 
-[discord.js] (https://www.npmjs.com/package/discord.js]
+[discord.js](https://www.npmjs.com/package/discord.js]
 
 # Author
 
