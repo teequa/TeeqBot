@@ -19,7 +19,7 @@ Cause of action.. <br/>
 
 <a href="https://discordapp.com/developers/applications/686348689438277797/bot"> Discord Developer </a>
 
-<a href="https://www.youtube.com/watch?v=Q03akWZkjZ8&list=PLm2hXbDAZv13tqx5I9eNJO7Y2XKa-3VDf"> YT playlist for setup </a>
+<a href="https://www.youtube.com/watch?v=KZ7c0OXzg6k&list=PLdnyVeMcpY78Hz8fFD1vqhYliBmZKaa7N"> YT playlist for setup </a>
 
 ### Resources
 
