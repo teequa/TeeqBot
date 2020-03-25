@@ -1,24 +1,18 @@
+//welcome system
+
+client.on('ready', () => {
+  console.log(`Teeq client is up and running!`);
+});
+
 client.on('guildMemberAdd', (member) => {
-  const guild = member.guild;
+  const channel = member.guild.channels.cache.find(channel => channel.id === config.welcomeChannel);
+  const newUser = member.has(member.id, member.user);
+  if (!channel) return;
 
-  newUsers.set(member.id, member.user);
-  console.log(`${member.user} was added to the Collection`);
-
-  if (newUsers.size > 10) {
-    const welcomeChannel = guild.channels.find(channel => channel.id === config.welcomeChannel);
-    const userlist = newUsers.map(u => u.toString()).join(" ");
-    welcomeChannel.send('Welcome to the channel');
-    newUsers.clear();
-  }
-
-});
-
-client.on("guildMemberRemove", (member) => {
-  if(newUsers.has(member.id)) newUsers.delete(member.id); {
-
-    console.log(`${member.user} has been removed`);
-  }
-});
+  if (member) {
+  channel.send(`welcome ${member.user}`);
+  console.log(`user: ${member.user} joined the server`);
+}
 
 
 // COMMANDS
@@ -41,3 +35,11 @@ if (cmd === "mod") {
 
 if (cmd === "admin") {
 message.channel.send(`The supreme leader is ${message.member.user}`);
+
+
+//pull role from users (in a message event and check user for authoization before countinuing)
+let memRole = message.member.roles.cache;
+if (cmd === !kick) {
+  if (!memRole.get(config.moderator))
+  return message.channel.send('not authorized');
+}
