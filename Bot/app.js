@@ -40,10 +40,6 @@ client.on("message", message => {
 
   let memRole = message.member.roles.cache;
 
-  if (cmd === "welcome") {
-    message.welcomeChannel.send('this is the welcome channel');
-  }
-
   if (cmd === "hey") {
     message.channel.send(`hey there ${message.author}`);
   } else
@@ -64,9 +60,11 @@ client.on("message", message => {
     message.channel.send(`this is the role id for the moderator role: ${config.moderator}`);
   } else
 
+//moderation
+
   if (cmd === "invite") {
-  message.channel.send(`invitation link: ${config.invite}`);
-}
+    message.channel.send(`invitation link: ${config.invite}`);
+  }
 
   if (cmd === "kick") {
   if (!memRole.get(config.moderator))
@@ -115,6 +113,7 @@ client.on("message", message => {
 
         member.ban().then(() => {
           message.channel.send(banEmbed);
+          console.log(`${user.tag} was banned by ${message.author.tag}`);
         }).catch(err => {
           message.reply('unable to ban user');
           console.log(err);
@@ -125,6 +124,20 @@ client.on("message", message => {
     } else {
       message.reply('you need to specify a user');
     }
+  }
+
+  if (cmd === "commands") {
+
+    const cmdEmbed = new Discord.MessageEmbed()
+      .setColor ('#4dff00')
+      .setTitle ('Server commands')
+      .setDescription ('These are Useful commands that you can use in the discord server')
+      .addFields (
+        { name: `${config.prefix}invite`, value:'Generates a invite link for use'},
+        { name: `${config.prefix}kick`, value:'Kicks specified user'},
+        { name: `${config.prefix}ban`, value:'Bans specified user'}
+      )
+    message.channel.send(cmdEmbed);
   }
 });
 
