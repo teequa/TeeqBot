@@ -1,8 +1,8 @@
-#Command list
+# Command list
 
 These are the current active commands for the Discord bot:
 
-####Moderation commands
+#### Moderation commands
 
 __!invite__:
 
