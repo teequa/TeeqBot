@@ -139,6 +139,10 @@ client.on("message", message => {
       )
     message.channel.send(cmdEmbed);
   }
+
+  if (cmd === "git") {
+    message.channel.send(`This is the git rep. for Teeq Bot https://github.com/teequa/TeeqBot`);
+  }
 });
 
 client.login(config.token);
