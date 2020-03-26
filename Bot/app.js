@@ -1,10 +1,30 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
 const newUsers = new Discord.Collection();
-// const embedList = require('./embeds.js');
+const fs = require('fs');
 
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
 
+//command handler
+fs.readdir("./commands", (err, files) => {
+  if(err) console.log(err);
+
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0){
+    console.log("could not find commands");
+    return;
+  }
+
+  jsfile.forEach((f, i) =>{
+  let props = require(`./commands/${f}`);
+  console.log(`${f} loaded`);
+  client.commands.set(props.help.name, props);
+  });
+  
+});
+
+//client initate
 client.on('ready', () => {
   console.log(`Teeq client is up and running!`);
 });
@@ -23,126 +43,20 @@ client.on('guildMemberAdd', (member) => {
 });
 client.on("guildMemberRemove", (member) => {
   if(newUsers.has(member.id)) newUsers.delete(member.id); {
-
-    console.log(`user: ${member.user} has been removed from the server`);
   }
 });
 
 //COMMANDS
-client.on("message", message => {
-  //if(message.author.client) return;
-   if (!message.content.startsWith(config.prefix)) return;
+client.on("message", async message => {
+  if (!message.content.startsWith(config.prefix)) return;
 
-  let cmd = message.content.split(" ")[0];
-  cmd = cmd.slice(config.prefix.length);
-
-  let arg = message.content.split(" ").slice(1);
-
+  let prefix = config.prefix
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
   let memRole = message.member.roles.cache;
-
-  if (cmd === "hey") {
-    message.channel.send(`hey there ${message.author}`);
-  } else
-
-  if (cmd === "ping") {
-    message.channel.send('ping' + 'pong');
-  } else
-
-  if (cmd === "pong") {
-    message.channel.send('ping..');
-  } else
-
-  if (cmd === "say") {
-    message.channel.send(arg.join(" "));
-  } else
-
-  if (cmd === "mod") {
-    message.channel.send(`this is the role id for the moderator role: ${config.moderator}`);
-  } else
-
-//moderation
-
-  if (cmd === "invite") {
-    message.channel.send(`invitation link: ${config.invite}`);
-  }
-
-  if (cmd === "kick") {
-  if (!memRole.get(config.moderator))
-  return message.reply('You do not have permission to use this command');
-
-    const user = message.mentions.users.first();
-
-    if (user) {
-      const member = message.guild.member(user);
-
-      if (member) {
-        member.kick('Were kicked form the channel').then(()=> {
-          message.reply(`succsessfuly kicked ${user.tag}`);
-        }).catch(err => {
-          message.reply('unable to kick user');
-          console.log(err);
-        });
-      } else{
-        message.reply(`that user is not a member of this server`);
-      }
-    } else {
-      message.reply('you need to specify a user');
-    }
-  }
-
-  if (cmd === "ban") {
-
-    if (!memRole.get(config.moderator))
-
-  return message.reply('You do not have permission to use this command');
-
-    const user = message.mentions.users.first();
-    if (user) {
-      const member = message.guild.member(user);
-
-      if (member) {
-
-        const banEmbed = new Discord.MessageEmbed()
-        .setColor ('#ff0000')
-        .setTitle ('User banned')
-        .addFields (
-          {name: `${user.tag} banned`, value: 'The user was banned by infringment of the server rules'}
-        )
-        .addField (`Ban issued by:`, `${message.author.tag}`)
-        .setTimestamp()
-
-        member.ban().then(() => {
-          message.channel.send(banEmbed);
-          console.log(`${user.tag} was banned by ${message.author.tag}`);
-        }).catch(err => {
-          message.reply('unable to ban user');
-          console.log(err);
-        });
-      } else{
-        message.reply(`that user is not a member of this server`);
-      }
-    } else {
-      message.reply('you need to specify a user');
-    }
-  }
-
-  if (cmd === "commands") {
-
-    const cmdEmbed = new Discord.MessageEmbed()
-      .setColor ('#4dff00')
-      .setTitle ('Server commands')
-      .setDescription ('These are Useful commands that you can use in the discord server')
-      .addFields (
-        { name: `${config.prefix}invite`, value:'Generates a invite link for use'},
-        { name: `${config.prefix}kick`, value:'Kicks specified user'},
-        { name: `${config.prefix}ban`, value:'Bans specified user'}
-      )
-    message.channel.send(cmdEmbed);
-  }
-
-  if (cmd === "git") {
-    message.channel.send(`This is the git rep. for Teeq Bot https://github.com/teequa/TeeqBot`);
-  }
+  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(client, message, args);
 });
 
 client.login(config.token);
