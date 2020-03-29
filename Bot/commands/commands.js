@@ -11,7 +11,8 @@ module.exports.run = async (client, message, args) => {
         .addFields (
           { name: `${config.prefix}invite`, value:'Generates a invite link for use'},
           { name: `${config.prefix}kick`, value:'Kicks specified user'},
-          { name: `${config.prefix}ban`, value:'Bans specified user'}
+          { name: `${config.prefix}ban`, value:'Bans specified user'},
+          { name: `${config.prefix}unban`, value:'unBans specified user'},
         )
       message.channel.send(cmdEmbed);
     }

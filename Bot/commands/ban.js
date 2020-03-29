@@ -13,20 +13,22 @@ module.exports.run = async (client, message, args, member) => {
     if (user) {
       const member = message.guild.member(user);
         if (member) {
-          let banlog = message.guild.channels.cache.find(channel => channel.id === config.banLogChannel);
+          let modlog = message.guild.channels.cache.find(channel => channel.id === config.modlogChannel);
           let reason = args.join(" ").slice(22);
+            if (!reason) return message.channel.send('Please add a reason for your ban request');
 
           const banEmbed = new Discord.MessageEmbed()
           .setColor ('#ff0000')
-          .setTitle ('User banned')
+          .setTitle (`${user.username} was banned`)
           .addFields (
-            {name: `${user.tag} banned`, value: `for ${reason}`}
+            {name: `was banned for`, value: `${reason}`},
+            {name: `Ban issued by:`, value: `${message.author.username}`},
+            {name: `victim's ID`, value: `${user.id}`}
           )
-          .addField (`Ban issued by:`, `${message.author.tag}`)
           .setTimestamp()
 
           member.ban(user, {reason: reason}).then(() => {
-            banlog.send(banEmbed);
+            modlog.send(banEmbed);
             message.channel.send(`${user.tag} was banned by ${message.author.tag}`);
             console.log(`${user.tag} was banned by ${message.author.tag} Reason: ${reason}`);
           }).catch(err => {
@@ -44,5 +46,6 @@ module.exports.run = async (client, message, args, member) => {
 
 module.exports.help = {
   name: "ban",
-  description: "Used to ban a specified user"
+  description: "Used to ban a specified user",
+  authorization: "mods"
 }

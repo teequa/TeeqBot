@@ -3,6 +3,7 @@ const config = require('./config.json');
 const newUsers = new Discord.Collection();
 const fs = require('fs');
 
+
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -21,7 +22,7 @@ fs.readdir("./commands", (err, files) => {
   console.log(`${f} loaded`);
   client.commands.set(props.help.name, props);
   });
-  
+
 });
 
 //client initate
@@ -49,7 +50,6 @@ client.on("guildMemberRemove", (member) => {
 //COMMANDS
 client.on("message", async message => {
   if (!message.content.startsWith(config.prefix)) return;
-
   let prefix = config.prefix
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
