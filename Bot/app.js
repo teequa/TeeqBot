@@ -47,6 +47,17 @@ client.on("guildMemberRemove", (member) => {
   }
 });
 
+
+// client.on("presenceUpdate", (client, oldMember, newMember) => {
+//   const presence = new Discord.Presence();
+//   let teequa = newMember.guild.user.cache.get(teequa)
+//     if (teequa.presence.game.streaming) {
+//       console.log(streaming);
+//     }
+//
+// });
+
+
 //COMMANDS
 client.on("message", async message => {
   if (!message.content.startsWith(config.prefix)) return;

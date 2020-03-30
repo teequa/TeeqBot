@@ -27,6 +27,8 @@ Cause of action.. <br/>
 
 [discord.js](https://www.npmjs.com/package/discord.js)
 
+[Polling in js](https://levelup.gitconnected.com/polling-in-javascript-ab2d6378705a)
+
 # Author
 
 Teequa/Aune
