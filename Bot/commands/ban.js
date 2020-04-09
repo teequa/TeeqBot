@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, member) => {
     if (user) {
       const member = message.guild.member(user);
         if (member) {
-          let modlog = message.guild.channels.cache.find(channel => channel.id === config.modlogChannel);
+          let modlog = message.guild.channels.cache.find(channel => channel.id === config.channels["modlogChannel"]);
           let reason = args.join(" ").slice(22);
             if (!reason) return message.channel.send('Please add a reason for your ban request');
 

@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const config = require('./config.json');
 const newUsers = new Discord.Collection();
 const fs = require('fs');
-
+const fetch = require('node-fetch');
+const express = require('express');
+const server = express();
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -25,9 +27,53 @@ fs.readdir("./commands", (err, files) => {
 
 });
 
+
 //client initate
 client.on('ready', () => {
   console.log(`Teeq client is up and running!`);
+});
+
+
+//Presence listener active - set to listen to teequa and parse JSON to read STREAMING status - push message
+client.on('presenceUpdate', (oldPresence, newPresence) => {
+  const teequa = config.teequa;
+
+  if (teequa === newPresence.userID) {
+
+    let activity = newPresence.activities;
+
+    if (!activity === undefined || !activity.length == 0) {
+    let activity_arg = JSON.stringify(activity[0])
+    let json = JSON.parse(activity_arg);
+    
+    // defining guild/channels/roles
+    const guild = newPresence.guild
+    const notiChannel = guild.channels.cache.find(channel => channel.id === config.channels["notiChannel"]);
+    
+      if (json.type === 'STREAMING') {
+        console.log('teequa is streaming');
+
+        //message embed
+        const notificationEmbed = new Discord.MessageEmbed()
+          .setColor ('#70bf4a')
+          .setURL (json.url)
+          .attachFiles(['../resources/images/bunta.jpg'])
+          .setAuthor (`Teequa is now live`, 'attachment://bunta.jpg', json.url)
+          .addFields (
+            {name: `Currently playing`, value: `${json.state}`, inline: true},
+            {name: 'Come say hi!', value: ':grin:', inline: true},
+            {name: `Stream title`, value: `[${json.details}](${json.url})`}
+          )
+          .setImage('attachment://bunta.jpg', json.url)
+          .setTimestamp()
+
+        //send embed w/role notification
+        notiChannel.send(notificationEmbed);
+      } else;
+    //send notification 
+    } else;
+    
+  } return;
 });
 
 //User join/leave
@@ -42,20 +88,11 @@ client.on('guildMemberAdd', (member) => {
 }
 
 });
+
 client.on("guildMemberRemove", (member) => {
   if(newUsers.has(member.id)) newUsers.delete(member.id); {
   }
 });
-
-
-// client.on("presenceUpdate", (client, oldMember, newMember) => {
-//   const presence = new Discord.Presence();
-//   let teequa = newMember.guild.user.cache.get(teequa)
-//     if (teequa.presence.game.streaming) {
-//       console.log(streaming);
-//     }
-//
-// });
 
 
 //COMMANDS

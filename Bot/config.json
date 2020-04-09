@@ -1,11 +1,25 @@
 {
   "token": "Njg2MzQ4Njg5NDM4Mjc3Nzk3.XnmLfQ.334mLFFreXiiIZOilij_w0gAtp8",
+  "clientID": "686348689438277797",
   "prefix": "!",
-  "moderator": "686370217638625307",
-  "admin":"692140677756354693",
-  "welcomeChannel":"692084011794694155",
-  "modlogChannel": "692803394867429428",
-  "errChannel": " ",
   "inviteLink":"https://discord.gg/wureTsr",
-  "teequa": "250922712392794112"
+  "teequa": "250922712392794112",
+  "moderator": "686370217638625307",
+  "notigang": "697661044113408090",
+
+  "channels" : {
+    "admin":"692140677756354693",
+    "welcomeChannel":"692084011794694155",
+    "modlogChannel": "692803394867429428",
+    "errChannel": " ",
+    "notiChannel": "697637249982005299"
+  },
+  
+  "Twitch" : {
+    "secret": "3dwuvksfyupp9eoq1yhybfcxd3hw9p",
+    "userID" : "https://api.twitch.tv/helix/users?login=",
+    "Client-id": "79neevsjflxk9feglinpizs2007ws8",
+    "liveURL": "https://api.twitch.tv/helix/streams?user_id="
+  }
+  
 }

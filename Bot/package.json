@@ -6,7 +6,8 @@
   "dependencies": {
     "core-util-is": "^1.0.2",
     "discord.js": "^12.0.2",
-    "snekfetch": "^4.0.4",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
     "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {},

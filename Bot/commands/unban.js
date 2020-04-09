@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
   //command code goes here
 let memRole = message.member.roles.cache
 let reason = args.join(" ").slice(22);
-let modlog = message.guild.channels.cache.find(channel => channel.id === config.modlogChannel);
+let modlog = message.guild.channels.cache.find(channel => channel.id === config.channels["modlogChannel"]);
 
 
 let user = args[0];

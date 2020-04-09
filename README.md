@@ -21,6 +21,8 @@ Cause of action.. <br/>
 
 <a href="https://www.youtube.com/watch?v=KZ7c0OXzg6k&list=PLdnyVeMcpY78Hz8fFD1vqhYliBmZKaa7N"> YT playlist for setup </a>
 
+[Rich embeds in djs](https://leovoel.github.io/embed-visualizer/)
+
 ### Resources
 
 [Node.js](https://nodejs.org/en/)
