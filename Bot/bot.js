@@ -48,7 +48,7 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
     
     // defining guild/channels/roles
     const guild = newPresence.guild
-    const notiChannel = guild.channels.cache.find(channel => channel.id === config.channels["notiChannel"]);
+    const liveChannel = guild.channels.cache.find(channel => channel.id === config.channels["liveChannel"]);
     
       if (json.type === 'STREAMING') {
         console.log('teequa is streaming');
@@ -68,7 +68,7 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
           .setTimestamp()
 
         //send embed w/role notification
-        notiChannel.send(notificationEmbed);
+        liveChannel.send(notificationEmbed);
       } else;
     //send notification 
     } else;

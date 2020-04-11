@@ -2,17 +2,20 @@
   "token": "Njg2MzQ4Njg5NDM4Mjc3Nzk3.XnmLfQ.334mLFFreXiiIZOilij_w0gAtp8",
   "clientID": "686348689438277797",
   "prefix": "!",
-  "inviteLink":"https://discord.gg/wureTsr",
+  "inviteLink":"https://discord.gg/wpNkzEx",
   "teequa": "250922712392794112",
-  "moderator": "686370217638625307",
-  "notigang": "697661044113408090",
+
+  "roles": {
+    "moderator": "682116072979169290",
+    "notigang": "682250529471987969"
+  },
 
   "channels" : {
     "admin":"692140677756354693",
-    "welcomeChannel":"692084011794694155",
-    "modlogChannel": "692803394867429428",
+    "welcomeChannel":"682130262532030478",
+    "modlogChannel": "697792643572170832",
     "errChannel": " ",
-    "notiChannel": "697637249982005299"
+    "liveChannel": "682243895064788993"
   },
   
   "Twitch" : {

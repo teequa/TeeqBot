@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
   //command code goes here
   let memRole = message.member.roles.cache;
 
-  if (!memRole.get(config.moderator))
+  if (!memRole.get(config.roles['moderator']))
   return message.reply('You do not have permission to use this command');
 
     const user = message.mentions.users.first();
