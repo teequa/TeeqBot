@@ -6,10 +6,6 @@ TeeqBot, a personalized discord bot developed for the Talking with Teeq server, 
 
 <a href="https://discordjs.guide/"> Discord.js guide </a>
 
-<a href="https://discord.js.org/#/docs/main/stable/general/welcome" > Discord.js Documentation </a>
-
-<a href="https://discord.gg/KJkKb2u" > Test channel for the bot </a>
-
 <a href="https://discordapp.com/developers/applications/686348689438277797/bot"> Discord Developer </a>
 
 [Rich embeds in djs](https://leovoel.github.io/embed-visualizer/)
