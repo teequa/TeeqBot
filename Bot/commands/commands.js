@@ -9,7 +9,7 @@ const memRol = message.member.roles.cache.get(config.roles['moderator']);
   const cmdEmbed = new Discord.MessageEmbed()
         .setColor ('#0099ff')
         .setTitle ('Server commands')
-        .setDescription ('These are the moderation commands for the bot. Call upon them with the __"!"__ prefix. Below is a list with spesifications of use:')
+        .setDescription ('These are the moderation commands for the bot. Call upon them with the __"!"__ prefix. Below is a list with specification of use:')
         .addFields (
           { name: '\u200B', value: '\u200B' },
           { name: `${config.prefix}invite`, value:'Generates a invite link for use',},
