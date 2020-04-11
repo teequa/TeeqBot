@@ -19,6 +19,7 @@ This i a document overviewing both planned and developed features.
 - [ ] experience system
     - earn a certain rank
         - grants features like emote management etc.
+- [ ] implement token encryption for git-launch.
 
 ### Main features
 - [x] __Twitch notification__: based on "streaming" presence of user (owner, and/or specified users).
