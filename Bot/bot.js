@@ -27,9 +27,6 @@ fs.readdir("./commands", (err, files) => {
 
 });
 
-console.log(process.env.BOT_TOKEN);
-
-
 //client initate
 client.on('ready', () => {
   console.log(`Teeq client is up and running!`);

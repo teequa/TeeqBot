@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 module.exports.run = async (client, message, args) => {
   //command code goes here
@@ -28,8 +29,8 @@ module.exports.run = async (client, message, args) => {
     const response = await fetch(usr, {
       method: 'GET',
       headers: {
-      'Client-ID': '79neevsjflxk9feglinpizs2007ws8',
-      'Authorization': '3dwuvksfyupp9eoq1yhybfcxd3hw9p'
+      'Client-ID': process.env.TWITCH_CLIENT_ID,
+      'Authorization': process.env.TWITCH_SECRET
       }
     })
   const json = await response.json();

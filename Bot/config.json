@@ -19,9 +19,7 @@
   },
   
   "Twitch" : {
-    "secret": "3dwuvksfyupp9eoq1yhybfcxd3hw9p",
     "userID" : "https://api.twitch.tv/helix/users?login=",
-    "Client-id": "79neevsjflxk9feglinpizs2007ws8",
     "liveURL": "https://api.twitch.tv/helix/streams?user_id="
   }
   
