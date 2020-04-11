@@ -3,20 +3,20 @@
 This i a document overviewing both planned and developed features.
 
 ### Planned features
-- [] embed handler (?)
-- [] Support system
+- [ ] embed handler (?)
+- [ ] Support system
     - send in a ticketed msg, when mod team won't reply in a timely manner
-- [] Mute system
+- [ ] Mute system
     - on spam (auto detect)
     - on moderation (use of command)
-- [] role system
+- [ ] role system
     - on moderation (use of command to assign *x-role* to *y-user*)
     - user personalisation (self assigned predefined roles for fun expression)
 - [ ] Emote manager
     - submissions
     - moderation
     - role based(trusted users)
--  experience system
+- [ ] experience system
     - earn a certain rank
         - grants features like emote management etc.
 
