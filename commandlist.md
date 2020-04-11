@@ -16,3 +16,4 @@ Command | Use | Example
 --- | --- | --- |
 Commands | generates a list of commands | !commands
 Invite | generate a invitation link for user | !invite
+teeqbot | States the current running version & GIT repo | !teeqbot
