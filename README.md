@@ -1,13 +1,6 @@
-# Discord bot
+# TeeqBot v.1 is live!
 
-Testing water for development of a Discord bot using Discord.js where the end goal is to develop a bot suitable for my own Discord server
-
-Cause of action.. <br/>
-<ul>
-  <li> Set up the bot suffix and token with the server (start on a test server)</li>
-  <li> Set up permission based command system for the bot </li>
-  <li> Feed simple commands as a basis for the system </li>
-</ul>
+TeeqBot, a personalized discord bot developed for the Talking with Teeq server, mixing features as notification systems to mod tools for a *ease-of-use* user experience all in one bot client! New features are in development, refer to [Features](https://github.com/teequa/TeeqBot/blob/master/features.md) for a full list.
 
 <h1> Useful links </h1>
 
@@ -19,8 +12,6 @@ Cause of action.. <br/>
 
 <a href="https://discordapp.com/developers/applications/686348689438277797/bot"> Discord Developer </a>
 
-<a href="https://www.youtube.com/watch?v=KZ7c0OXzg6k&list=PLdnyVeMcpY78Hz8fFD1vqhYliBmZKaa7N"> YT playlist for setup </a>
-
 [Rich embeds in djs](https://leovoel.github.io/embed-visualizer/)
 
 ### Resources
@@ -29,7 +20,7 @@ Cause of action.. <br/>
 
 [discord.js](https://www.npmjs.com/package/discord.js)
 
-[Polling in js](https://levelup.gitconnected.com/polling-in-javascript-ab2d6378705a)
+[node-fetch](https://www.npmjs.com/package/node-fetch)
 
 # Author
 
