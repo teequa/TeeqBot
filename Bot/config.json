@@ -1,9 +1,9 @@
 {
-  "token": "Njg2MzQ4Njg5NDM4Mjc3Nzk3.XnmLfQ.334mLFFreXiiIZOilij_w0gAtp8",
   "clientID": "686348689438277797",
   "prefix": "!",
   "inviteLink":"https://discord.gg/wpNkzEx",
   "teequa": "250922712392794112",
+  "gitLink": "https://github.com/teequa/TeeqBot",
 
   "roles": {
     "moderator": "682116072979169290",

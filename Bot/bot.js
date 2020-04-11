@@ -4,7 +4,7 @@ const newUsers = new Discord.Collection();
 const fs = require('fs');
 const fetch = require('node-fetch');
 const express = require('express');
-const server = express();
+require('dotenv').config();
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -26,6 +26,8 @@ fs.readdir("./commands", (err, files) => {
   });
 
 });
+
+console.log(process.env.BOT_TOKEN);
 
 
 //client initate
@@ -78,12 +80,12 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
 
 //User join/leave
 client.on('guildMemberAdd', (member) => {
-  const channel = member.guild.channels.cache.find(channel => channel.id === config.welcomeChannel);
+  const channel = member.guild.channels.cache.find(channel => channel.id === config.channels["welcomeChannel"]);
   //const newUser = member.has(member.id, member.user);
   if (!channel) return;
 
   if (member) {
-  channel.send(`welcome ${member.user}`);
+  channel.send(`welcome ${member.user}, please take your time and read the "supreme conduct(rules)", other than that meme out and have fun!`);
   console.log(`user: ${member.user} joined the server`);
 }
 
@@ -107,4 +109,4 @@ client.on("message", async message => {
   if(commandfile) commandfile.run(client, message, args);
 });
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
