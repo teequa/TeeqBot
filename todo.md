@@ -1,4 +1,4 @@
-# Todo list for TeeqBot
+# Feature list for TeeqBot
 
 This i a document overviewing both planned and developed features.
 
