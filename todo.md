@@ -12,11 +12,11 @@ This i a document overviewing both planned and developed features.
 - [] role system
     - on moderation (use of command to assign *x-role* to *y-user*)
     - user personalisation (self assigned predefined roles for fun expression)
-- [] Emote manager
+- [ ] Emote manager
     - submissions
     - moderation
     - role based(trusted users)
-- [] experience system
+-  experience system
     - earn a certain rank
         - grants features like emote management etc.
 
