@@ -1,20 +1,18 @@
 # Command list
-
+All commands are using the prefix __!__
 These are the current active commands for the Discord bot:
 
 ### Moderation commands
 
-__!invite__:
---
-This will produce a invitation link for use in a set period of time.
-_Currently only spits out a predefined invitation link_
+Command | Use | Example
+--- | --- | --- |
+Kick | Kicks specified user | !kick @user
+Ban | Bans specified user w/reason | !ban @user *reason*
+Unban | Unbans specofoed user | !unban @user
 
-__!kick__:
---
-This will kick the defined player form the server.
+### Misc commands
 
-
-__!ban__:
---
-This will ban the defined user from the server.
-The bot will produce a detailed *MessageEmbed* based on the reasons behind the ban and which user initiated the ban
+Command | Use | Example
+--- | --- | --- |
+Commands | generates a list of commands | !commands
+Invite | generate a invitation link for user | !invite
