@@ -13,3 +13,17 @@ module.exports.help = {
   description: " ",
   authorization: " "
 }
+
+//twitch api call
+
+  const usr = "https://api.twitch.tv/helix/streams?user_id=37618583"
+    const response = await fetch(usr, {
+      method: 'GET',
+      headers: {
+      'Client-ID': process.env.TWITCH_CLIENT_ID,
+      'Authorization': process.env.TWITCH_SECRET
+      }
+    })
+  const json = await response.json();
+
+  console.log(json);

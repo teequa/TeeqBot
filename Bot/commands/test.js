@@ -2,40 +2,44 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const fetch = require('node-fetch');
 require('dotenv').config();
+var AsciiTable = require('ascii-table');
 
 module.exports.run = async (client, message, args) => {
   //command code goes here
-  let memRole = message.member.roles.cache;
-  if (!memRole.get(config.moderator))
-  return message.reply('You do not have permission to use this command');
-
-// GET user_id of userlogin name from the Twitch API
-
-  // const usr = "https://api.twitch.tv/helix/users?login=teequa"
-  // const response = await fetch(usr, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Client-ID': '79neevsjflxk9feglinpizs2007ws8',
-  //     'Authorization': '3dwuvksfyupp9eoq1yhybfcxd3hw9p'
-  //   }
-  // })
-  // const json = await response.json();
-
-  // console.log(json);
-
-// GET channel status from user_id from the Twitch API
-
-  const usr = "https://api.twitch.tv/helix/streams?user_id=37618583"
-    const response = await fetch(usr, {
-      method: 'GET',
-      headers: {
-      'Client-ID': process.env.TWITCH_CLIENT_ID,
-      'Authorization': process.env.TWITCH_SECRET
-      }
-    })
-  const json = await response.json();
-
-  console.log(json);
+  
+  //table values
+  let commands= {
+    "kick": {
+      "use": "Kicks specified user",
+      "example": "!kick @user"
+    },
+    "ban": {
+      "use": "Bans specified user w/reason",
+      "example": "!ban @user *reason*"
+    },
+    "unban": {
+      "use": "Unbans specified user",
+      "example": "!unban @user"
+    }
+  }  
+    
+  const cmdEmbed = new Discord.MessageEmbed()
+        .setColor ('#0099ff')
+        .setTitle ('Server commands')
+        .setDescription ('These are the moderation commands for the bot. Call upon them with the __"!"__ prefix. Below is a list with specification of use:')
+          // space
+         .addField ("\u200B", "\u200B")
+         // command table
+          .addFields (
+            { name: "**Commands**", value: `\u200B \n Kick \n Ban \n Unban`, inline: true },
+            { name: "**Use**", value: `\u200B \n ${commands.kick['use']} \n ${commands.ban['use']} \n ${commands.unban['use']}`, inline: true },
+            { name: "**Example**", value: `\u200B \n ${commands.kick['example']} \n ${commands.ban['example']} \n ${commands.unban['example']}`, inline: true },
+          )
+         //space
+         .addField ("\u200B", "\u200B")
+        .addField ('Full commands & feture list', '[here](https://github.com/teequa/TeeqBot/blob/master/commandlist.md)')
+        .setTimestamp ()
+      message.channel.send(cmdEmbed);
 
 }
 module.exports.help = {
