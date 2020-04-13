@@ -1,5 +1,5 @@
 # Command list
-All commands are using the prefix __!__
+All commands uses the prefix __!__
 These are the current active commands for the Discord bot:
 
 ### Moderation commands
