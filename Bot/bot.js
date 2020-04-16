@@ -22,16 +22,18 @@ fs.readdir("./commands", (err, files) => {
   jsfile.forEach((f, i) =>{
   let props = require(`./commands/${f}`);
   console.log(`${f} loaded`);
-  client.commands.set(props.help.name, props);
+  client.commands.set(props.help.name, props);  
   });
+
+  console.log('Command files loaded');
+  
 
 });
 
 //client initate
 client.on('ready', () => {
-  console.log(`Teeq client is up and running!`);
+  console.log(`TeeqBot is up and running!`);
 });
-
 
 //Presence listener active - set to listen to teequa and parse JSON to read STREAMING status - push message
 client.on('presenceUpdate', (oldPresence, newPresence) => {
@@ -92,7 +94,6 @@ client.on("guildMemberRemove", (member) => {
   if(newUsers.has(member.id)) newUsers.delete(member.id); {
   }
 });
-
 
 //COMMANDS
 client.on("message", async message => {

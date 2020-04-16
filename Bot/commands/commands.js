@@ -3,29 +3,42 @@ const config = require('../config.json');
 
 module.exports.run = async (client, message, args) => {
   //command code goes here
-const modLog = message.guild.channels.cache.find(channel => channel.id === config.channels['modlogChannel']);
 const memRol = message.member.roles.cache.get(config.roles['moderator']);
 
-  const cmdEmbed = new Discord.MessageEmbed()
-        .setColor ('#0099ff')
-        .setTitle ('Server commands')
-        .setDescription ('These are the moderation commands for the bot. Call upon them with the __"!"__ prefix. Below is a list with specification of use:')
+if (!memRol) return message.reply('You\'re not authorized to use this command.')
+
+let commands= {
+  "kick": {
+    "use": "Kicks specified user",
+    "example": "!kick @user"
+  },
+  "ban": {
+    "use": "Bans specified user w/reason",
+    "example": "!ban @user *reason*"
+  },
+  "unban": {
+    "use": "Unbans specified user",
+    "example": "!unban @user"
+  }
+}  
+  
+const cmdEmbed = new Discord.MessageEmbed()
+      .setColor ('#0099ff')
+      .setTitle ('Server commands')
+      .setDescription ('These are the moderation commands for the bot. Call upon them with the __"!"__ prefix. Below is a list with specification of use:')
+        // space
+       .addField ("\u200B", "\u200B")
+       // command table
         .addFields (
-          { name: '\u200B', value: '\u200B' },
-          { name: `${config.prefix}invite`, value:'Generates a invite link for use',},
-          { name: '\u200B', value: '\u200B' },
-          { name: `${config.prefix}kick`, value:'Kicks specified user', inline: true},
-          { name: `Example use`, value:'!kick @username', inline: true},
-          { name: '\u200B', value: '\u200B' },
-          { name: `${config.prefix}ban`, value:'Bans specified user', inline: true},
-          { name: `Example use`, value:'!ban @username *reason*', inline: true},
-          { name: '\u200B', value: '\u200B' },
-          { name: `${config.prefix}unban`, value:'Unbans a specified user on the ban list', inline: true},
-          { name: `Example use`, value:'!unban @username', inline: true},
+          { name: "**Commands**", value: `\u200B \n Kick \n Ban \n Unban`, inline: true },
+          { name: "**Use**", value: `\u200B \n ${commands.kick['use']} \n ${commands.ban['use']} \n ${commands.unban['use']}`, inline: true },
+          { name: "**Example**", value: `\u200B \n ${commands.kick['example']} \n ${commands.ban['example']} \n ${commands.unban['example']}`, inline: true },
         )
-        .addField ('Full commands & feture list', '[here](https://github.com/teequa/TeeqBot/blob/master/commandlist.md)')
-        .setTimestamp ()
-      message.channel.send(cmdEmbed);
+       //space
+       .addField ("\u200B", "\u200B")
+      .addField ('**Full commands & feature list**', '[Commands](https://github.com/teequa/TeeqBot/blob/master/commandlist.md) - [Features](https://github.com/teequa/TeeqBot/blob/master/features.md)')
+      .setTimestamp ()
+    message.channel.send(cmdEmbed);
     }
 
 module.exports.help = {

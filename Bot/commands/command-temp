@@ -27,3 +27,16 @@ module.exports.help = {
   const json = await response.json();
 
   console.log(json);
+
+  message.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(mutedRole, {
+          SEND_MESSAGES: false,
+          ADD_REACTIONS: false
+        });
+      });
+    } catch (e) {
+      console.log(e.stack);
+    }
+  }
+
+  
