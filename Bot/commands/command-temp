@@ -39,4 +39,30 @@ module.exports.help = {
     }
   }
 
-  
+  // mute command
+
+  let toMute = message.mentions.members.first();
+let mainRole = message.guild.roles.cache.find(r => r.name === "@everyone");
+let mutedRole = message.guild.roles.cache.get(config.roles["muted"]);
+let time = args[2];
+let time_s = time * 1000;
+if (!toMute) return message.reply("u need to specify user");
+if (!mainRole) return message.reply("no main role(everyone) found");
+if (!time) return message.reply("please specify a time(seconds) for the user to be muted");
+
+console.log(time_s);
+console.log(mutedRole.id);
+console.log(mainRole.id);
+
+
+
+ toMute.roles.remove(mainRole.id);
+ toMute.roles.add(mutedRole.id);
+
+message.channel.send(`${toMute.user.tag}, was muted for ${time} seconds`);
+
+setTimeout(unmute => {
+  toMute.roles.add(mainRole.id);
+  toMute.roles.remove(mutedRole.id);
+  console.log(`${toMute.user.tag}, was unmuted`);
+}, time_s);

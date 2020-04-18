@@ -19,6 +19,14 @@ let commands= {
   "unban": {
     "use": "Unbans specified user",
     "example": "!unban @user"
+  },
+  "mute": {
+    "use": "Mutes specified user for *(seconds)*  w/reason",
+    "example": "!mute @user *30* reason" 
+  },
+  "unmute": {
+    "use": "Unmutes a muted user",
+    "example": "!unmute @user",
   }
 }  
   
@@ -30,9 +38,9 @@ const cmdEmbed = new Discord.MessageEmbed()
        .addField ("\u200B", "\u200B")
        // command table
         .addFields (
-          { name: "**Commands**", value: `\u200B \n Kick \n Ban \n Unban`, inline: true },
-          { name: "**Use**", value: `\u200B \n ${commands.kick['use']} \n ${commands.ban['use']} \n ${commands.unban['use']}`, inline: true },
-          { name: "**Example**", value: `\u200B \n ${commands.kick['example']} \n ${commands.ban['example']} \n ${commands.unban['example']}`, inline: true },
+          { name: "**Commands**", value: `\u200B \n Kick \n Ban \n Unban \n Mute \n Unmute`, inline: true },
+          { name: "**Use**", value: `\u200B \n ${commands.kick['use']} \n ${commands.ban['use']} \n ${commands.unban['use']} \n ${commands.mute['use']} \n ${commands.unmute['use']}`, inline: true },
+          { name: "**Example**", value: `\u200B \n ${commands.kick['example']} \n ${commands.ban['example']} \n ${commands.unban['example']} \n ${commands.mute['example']} \n ${commands.unmute['example']}`, inline: true },
         )
        //space
        .addField ("\u200B", "\u200B")
