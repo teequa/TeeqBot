@@ -8,7 +8,9 @@ Command | Use | Example
 --- | --- | --- |
 Kick | Kicks specified user | !kick @user
 Ban | Bans specified user w/reason | !ban @user *reason*
-Unban | Unbans specofoed user | !unban @user
+Unban | Unbans specified user | !unban @user
+Mute | Mutes specified user for *(seconds)* w/reason | !mute @user *30* reason
+Unmute | Unmutes a muted user | !unmute @user
 
 ### Misc commands
 
