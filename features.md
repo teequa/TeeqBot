@@ -4,10 +4,9 @@ This i a document overviewing both planned and developed features.
 
 ### Planned features
 - [ ] embed handler (?)
-- [ ] Support system
+- [x] Support system
     - send in a ticketed msg, when mod team won't reply in a timely manner
-- [ ] Mute system
-    - on spam (auto detect)
+- [x] Mute system
     - on moderation (use of command)
 - [ ] role system
     - on moderation (use of command to assign *x-role* to *y-user*)
