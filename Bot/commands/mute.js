@@ -15,14 +15,14 @@ module.exports.run = async (client, message, args) => {
   let reason = args.join(" ").slice("30");
   let modlog = message.guild.channels.cache.find(channel => channel.id === config.channels["modlogChannel"]);
   
-  if (!reason) return message.reply("You need to specify a reason");
   if (!memRole) return message.reply("You're not authorized to use this command.")
-  if (!toMute) return message.reply("You need to specify user to mute");
+  if (!toMute || toMute === "undefined") return message.reply("You need to specify user to mute");
+  if (!reason) return message.reply("You need to specify a reason");
+  if (!time) return message.reply("please specify a time(seconds) for the user to be muted");  
   if (toMute.id === message.author.id) return message.reply("You cannot mute yourself");
   if (toMute.id === config.teequa) return message.reply(`You fool, you cannot mute the Supreme Leader! \n \n Long live the regime!`);
   if (toMute._roles.includes(memRole.id)) return message.reply("You can't mute a moderator");
   if (!mainRole) return message.reply("no user role found");
-  if (!time) return message.reply("please specify a time(seconds) for the user to be muted");  
   
   const muteEmbed = new Discord.MessageEmbed()
   .setColor ('#fff700')

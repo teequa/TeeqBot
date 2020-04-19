@@ -3,7 +3,6 @@ const config = require('./config.json');
 const newUsers = new Discord.Collection();
 const fs = require('fs');
 const fetch = require('node-fetch');
-const express = require('express');
 require('dotenv').config();
 
 const client = new Discord.Client();
