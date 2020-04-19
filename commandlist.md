@@ -12,6 +12,12 @@ Unban | Unbans specified user | !unban @user
 Mute | Mutes specified user for *(seconds)* w/reason | !mute @user *30* reason
 Unmute | Unmutes a muted user | !unmute @user
 
+### User Commands
+
+Command | Use | Example
+--- | --- | --- |
+report | Reports specified user w/reason | !report @user *reason*
+
 ### Misc commands
 
 Command | Use | Example
