@@ -9,7 +9,7 @@ Command | Use | Example
 Kick | Kicks specified user | !kick @user
 Ban | Bans specified user w/reason | !ban @user *reason*
 Unban | Unbans specified user | !unban @user
-Mute | Mutes specified user for *(seconds)* w/reason | !mute @user *30* reason
+Mute | Mutes specified user for *(seconds)* w/reason | !mute @user **30** *reason*
 Unmute | Unmutes a muted user | !unmute @user
 
 ### User Commands
