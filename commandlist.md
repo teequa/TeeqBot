@@ -16,7 +16,7 @@ Unmute | Unmutes a muted user | !unmute @user
 
 Command | Use | Example
 --- | --- | --- |
-report | Reports specified user w/reason | !report @user *reason*
+Report | Reports specified user w/reason | !report @user *reason*
 
 ### Misc commands
 
