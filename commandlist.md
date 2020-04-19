@@ -20,8 +20,8 @@ Report | Reports specified user w/reason | !report @user *reason*
 
 ### Misc commands
 
-Command | Use | Example
---- | --- | --- |
-Commands | generates a list of commands | !commands
-Invite | generate a invitation link for user | !invite
-teeqbot | States the current running version & GIT repo | !teeqbot
+Command | Use | Example | roles |
+--- | --- | --- | --- |
+Commands | generates a list of commands | !commands | moderators (shows mod commands, user commandtable is comming)
+Invite | generate a invitation link for user | !invite | moderators
+teeqbot | States the current running version & GIT repo | !teeqbot | everyone
