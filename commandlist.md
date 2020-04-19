@@ -22,6 +22,6 @@ Report | Reports specified user w/reason | !report @user *reason*
 
 Command | Use | Example | roles |
 --- | --- | --- | --- |
-Commands | generates a list of commands | !commands | moderators (shows mod commands, user commandtable is comming)
+Commands | generates a list of commands | !commands | moderators (shows mod commands, user command table is comming)
 Invite | generate a invitation link for user | !invite | moderators
 teeqbot | States the current running version & GIT repo | !teeqbot | everyone
