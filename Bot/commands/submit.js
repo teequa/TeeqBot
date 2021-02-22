@@ -34,8 +34,8 @@ let msgAttachment = message.attachments.first();
             recentUse.delete(message.author.id);
         }, 3000);
 
-    } else if (args[1] && !message.content.includes("https://")) {
-        
+    } else if (args[1] || msgAttachment && !message.content.includes("https://")) {
+
         if (msgAttachment) {
             const submissionEmbed = new Discord.MessageEmbed()
           .setColor ('#3aa832')
