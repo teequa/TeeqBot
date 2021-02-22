@@ -17,11 +17,12 @@ Unmute | Unmutes a muted user | !unmute @user
 Command | Use | Example
 --- | --- | --- |
 Report | Reports specified user w/reason | !report @user *reason*
+Submit | Submit emote suggestion to the server and Twitch channel | !submit *emotename* / *img* / *description of a idea*
 
 ### Misc commands
 
 Command | Use | Example | roles |
 --- | --- | --- | --- |
-Commands | generates a list of commands | !commands | moderators (shows mod commands, user command table is comming)
 Invite | generate a invitation link for user | !invite | moderators
 teeqbot | States the current running version & GIT repo | !teeqbot | everyone
+Commands | generates a list of usable commands based on user role | !commands | everyone
