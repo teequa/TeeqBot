@@ -11,7 +11,7 @@ let usr = message.author.username
 let msgAttachment = message.attachments.first();
 
 
-    if (args.length > 2 && !message.content.includes("https://")) { //6a0dad
+    if (args.length > 2 && !message.content.includes("https://")) { // if there is more than 2 arguments execute twitchsubmission
 
         const t_submissionEmbed = new Discord.MessageEmbed()
             .setColor ('#6a0dad')
@@ -34,16 +34,16 @@ let msgAttachment = message.attachments.first();
             recentUse.delete(message.author.id);
         }, 3000);
 
-    } else if (args[1] || msgAttachment && !message.content.includes("https://")) {
+    } else if (args[1] || msgAttachment && !message.content.includes("https://")) { // else if there is only 2 arguments, or 1 img-attachment execute serversubmit
 
-        if (msgAttachment) {
+        if (msgAttachment) { // if image attached, send image in submission
             const submissionEmbed = new Discord.MessageEmbed()
           .setColor ('#3aa832')
           .setTitle(`${usr} submitted an emote`)
           .addFields (
               { name: `Emote submission`, value: `${submission}`}
           )
-          .setImage(msgAttachment["attachment"])
+          .setImage(msgAttachment["attachment"]) //submitted image
           .setTimestamp()
 
           submit.send(submissionEmbed);
@@ -53,7 +53,7 @@ let msgAttachment = message.attachments.first();
         }); message.delete({timeout: 5000})
         console.log(`${usr} just submitted a server Emote: ${submission}`);
 
-        } else {
+      } else { // send regular serversubmit
 
       const submissionEmbed = new Discord.MessageEmbed()
           .setColor ('#3aa832')
@@ -72,7 +72,7 @@ let msgAttachment = message.attachments.first();
           message.delete({timeout: 5000})
       }); message.delete({timeout: 5000})
         }
-    } else {
+    } else { //err statment with complying to the conditions
         message.reply("Please state a emote for submission. Max 1 per use, no links").then(message =>{
             message.delete({timeout: 5000})
         }); message.delete({timeout: 5000})
